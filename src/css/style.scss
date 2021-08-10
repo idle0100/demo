@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: #f3f3f3;
+}
+
+
+.bear {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100px;
+  background: url("../static/running-bear.png") no-repeat;
+  animation: run .6s steps(8) infinite, move 6s ease infinite;
+}
+
+@keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 1600px;
+  }
+}
+
+@keyframes run {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1600px 0;
+  }
+}
