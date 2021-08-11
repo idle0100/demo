@@ -1,4 +1,8 @@
 class Node {
+    element;
+    next;
+
+
     constructor(element) {
         this.element = element;
         this.next = null;
@@ -7,6 +11,9 @@ class Node {
 
 // 链表
 class LinkedList {
+    head;
+    length;
+
     constructor() {
         this.head = null;
         this.length = 0;
