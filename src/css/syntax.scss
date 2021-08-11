@@ -1,0 +1,150 @@
+$variable: 100px;
+$class-name: demo;
+
+.#{$class-name} {
+  width: $variable;
+
+  & > p {
+    width: 20px;
+  }
+}
+
+
+// 指令
+// @import
+// @extend
+// @include
+// @mixin
+
+
+.error {
+  border: 1px solid #f00;
+  background-color: #fdd;
+}
+
+.seriousError {
+  @extend .error; //
+  border-radius: 3px;
+}
+
+/* 1. 不带参数的mixin */
+@mixin large-text {
+  // 嵌套（属性嵌套）
+  font: {
+    famil: Arial;
+    size: 20px;
+    weight: bold;
+  }
+}
+
+.page-title {
+  @include large-text;
+  padding: 4px;
+  margin-top: 10px;
+}
+
+/* 2. 带参数的mixin */
+@mixin sexy-border($color, $width) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}
+
+p {
+  @include sexy-border(blue, 1in);
+}
+
+// 关键词参数
+h1 {
+  @include sexy-border($color: blue, $width: 2in);
+}
+
+@mixin box-shadow($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+
+// @extend与@mixin的区别：@mixin可以带参数。
+
+@mixin apply-to-ie6-only {
+  * html {
+    @content; // 占位符
+  }
+}
+
+@include apply-to-ie6-only {
+  #logo {
+    //background-image: url();
+  }
+}
+
+
+/* 控制指令 */
+
+p {
+  @if 1 + 1 == 2 {
+    border: 1px solid;
+  }
+  @if 5 < 3 {
+    border: 2px dotted
+  }
+  @if null {
+    border: 3px double
+  }
+}
+
+// 循环样式
+@for $i from 1 through 3 {
+  .item-#{$i} {
+    width: 2em * $i;
+  }
+}
+
+// 列举一个范围，在其中遍历
+@each $animal in puma, sea-slug, egret, salsmander {
+  .#{$animal}-icon {
+    background-color: #fff;
+  }
+}
+
+
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} {
+    width: 2em * $i;
+  }
+  $i: $i - 2;
+}
+
+
+
+
+/* 函数指令 */
+
+$grid-width: 40px;
+$gutter-width: 10px;
+
+@function grid-width($n) {
+  @return $n * $grid-width + ($n - 1) * $gutter-width;
+}
+
+
+#sidebar {
+  width: grid-width(5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
