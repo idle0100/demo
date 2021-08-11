@@ -1,9 +1,9 @@
+// @ts-ignore
 class Node {
-    element;
-    next;
+    element: any;
+    next: Node;
 
-
-    constructor(element) {
+    constructor(element: any) {
         this.element = element;
         this.next = null;
     }
@@ -11,8 +11,8 @@ class Node {
 
 // 链表
 class LinkedList {
-    head;
-    length;
+    head: Node;
+    length: number;
 
     constructor() {
         this.head = null;
@@ -20,8 +20,8 @@ class LinkedList {
     }
 
     // 追加元素
-    append(element) {
-        const node = new Node(element);
+    append(element: number) {
+        const node = new Node();
         let current = null;
         if (this.head === null) {
             this.head = node;
@@ -36,7 +36,7 @@ class LinkedList {
     }
 
     // 任意位置插入元素
-    insert(position, element) {
+    insert(position: number, element: any) {
         if (position >= 0 && position <= this.length) {
             const node = new Node(element);
             let current = this.head;
@@ -94,7 +94,7 @@ class LinkedList {
         return -1;
     }
 
-    // 删除指定文档
+    //
     remove(element) {
         const index = this.indexOf(element);
         return this.removeAt(index);
@@ -108,12 +108,16 @@ class LinkedList {
         return this.length;
     }
 
+    indexOf(element) {
+
+    }
+
     // 转为字符串
     toString() {
         let current = this.head;
         let string = "";
         while (current) {
-            string += ` ${ current.element }`;
+            string += ` ${current.element}`;
             current = current.next;
         }
         return string;
