@@ -3,14 +3,14 @@ import './css/style.scss';
 /**
  * js数据结构
  */
-// import './js-struct/tree.ts';
+import './js-struct/tree.ts';
 // import './js-struct/queue.ts';
 
 /**
  * 算法练习
  */
 // import './recursive.ts';
-import './ts/algorithm.ts';
+// import './ts/algorithm.ts';
 
 
 // web APIs: IntersectionObserver使用

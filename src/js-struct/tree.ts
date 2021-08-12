@@ -1,9 +1,8 @@
-/*
-* 二叉树
-* */
-
+/**
+ * 二叉树
+ */
 class Node2 {
-  public data;
+  public data: number;
   public left: Node2 | null;
   public right: Node2 | null;
   
@@ -16,12 +15,11 @@ class Node2 {
   show() {
     console.log(this.data);
   }
-  
 }
 
 
 class Tree<T> {
-  protected root;
+  root: Node2;
   
   constructor() {
     this.root = null;
@@ -34,8 +32,8 @@ class Tree<T> {
       return;
     }
     
-    let current: Node2 = this.root;
-    let parent: Node2 = null;
+    let current = this.root;
+    let parent = null;
     while (current) {
       parent = current;
       if (data < parent.data) {
@@ -54,7 +52,7 @@ class Tree<T> {
     }
   }
   
-  
+  // 前序遍历（递归）
   preOrder(node: Node2) {
     if (node) {
       node.show();
@@ -63,6 +61,7 @@ class Tree<T> {
     }
   }
   
+  // 中序遍历（递归）
   middleOrder(node: Node2) {
     if (node) {
       this.middleOrder(node.left);
@@ -71,6 +70,7 @@ class Tree<T> {
     }
   }
   
+  // 后续遍历（递归）
   laterOrder(node: Node2) {
     if (node) {
       this.laterOrder(node.left);
@@ -78,6 +78,7 @@ class Tree<T> {
       node.show();
     }
   }
+  
   
   getMin() {
     let current = this.root;
@@ -100,19 +101,33 @@ class Tree<T> {
   }
   
   // 二叉树深度
-  getDeep(node: Node2, deep) {
-    deep = deep || 0;
+  // getDeep(node: Node2, deep: number): number {
+  //   deep = deep || 0;
+  //   if (node == null) {
+  //     return deep;
+  //   }
+  //   deep++;
+  //   const dLeft = this.getDeep(node.left, deep);
+  //   const dRight = this.getDeep(node.right, deep);
+  //   return Math.max(dLeft, dRight);
+  // }
+  
+  getMaxDeep(node: Node2): number {
     if (node == null) {
-      return deep;
+      return 0
     }
-    deep++;
-    const dleft = this.getDeep(node.left, deep);
-    const dright = this.getDeep(node.right, deep);
-    return Math.max(dleft, dright);
+    const dLeft = this.getMaxDeep(node.left);
+    const dRight = this.getMaxDeep(node.right);
+    return Math.max(dLeft, dRight) + 1;
+  }
+  
+  getMinDeep(node: Node2): number {
+    
+    
+    return
   }
   
 }
-
 
 const t = new Tree();
 
@@ -127,4 +142,8 @@ t.insert(0);
 t.insert(10)
 
 console.log(t);
+
+
+t.preOrder(t.root)
+
 
