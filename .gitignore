@@ -1,4 +1,21 @@
 /node_modules
+# 忽略根目录下.idea文件夹
 /.idea
 
 package-lock.json
+
+# 忽略temp目录下的所有文件
+/temp
+
+# 忽略doc文件夹下的所有txt文件，不包括doc子文件夹下的txt文件
+doc/*.txt
+
+# 排除所有txt文件，除了lib.txt文件
+*.txt
+!lib.txt
+
+# * 通配多个字符
+# ? 通配单个字符
+
+# [abc] 可选字符串（类似正则）
+# {string1, string2, ……}
