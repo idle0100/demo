@@ -1,55 +1,3 @@
-// 1. 递归解法
-function Fibonacci(n: number): number {
-  if (n <= 0) {
-    return 0;
-  }
-  
-  if (n === 1 || n === 2) {
-    return 1;
-  }
-  
-  return Fibonacci(n - 1) + Fibonacci(n - 2);
-}
-
-// Fibonacci(n) 实际需要执行这个函数
-
-// 2. 递归加记忆化
-function Fibonacci2(n: number, memory: number[] = []) {
-  if (n < 2) {
-    return n;
-  }
-  
-  // n >= 2
-  if (!memory[n]) {
-    memory[n] = Fibonacci2(n - 1, memory) + Fibonacci2(n - 2, memory)
-  }
-  
-  return memory[n];
-}
-
-
-// 3. 动态规划解法
-function Fibonacci3(n: number) {
-  if (n <= 1) {
-    return n;
-  }
-  
-  let i = 1;
-  let pre = 0;
-  let current = 1;
-  let result = 0;
-  
-  while (i++ < n) { // n = 5
-    result = pre + current; // 0 + 1
-    pre = current;
-    current = result
-  }
-  
-  return result;
-  
-}
-
-
 /**
  * 排序
  */
@@ -131,5 +79,3 @@ function insertSort<T>(array: Array<T>): Array<T> {
 
 
 const arr = [4, 6, 2, 9, 5];
-
-

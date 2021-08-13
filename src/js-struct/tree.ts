@@ -100,18 +100,9 @@ class Tree<T> {
     }
   }
   
-  // 二叉树深度
-  // getDeep(node: Node2, deep: number): number {
-  //   deep = deep || 0;
-  //   if (node == null) {
-  //     return deep;
-  //   }
-  //   deep++;
-  //   const dLeft = this.getDeep(node.left, deep);
-  //   const dRight = this.getDeep(node.right, deep);
-  //   return Math.max(dLeft, dRight);
-  // }
-  
+  /**
+   * 二叉树最大深度
+   */
   getMaxDeep(node: Node2): number {
     if (node == null) {
       return 0
@@ -121,13 +112,39 @@ class Tree<T> {
     return Math.max(dLeft, dRight) + 1;
   }
   
+  /**
+   * 二叉树最小深度
+   */
   getMinDeep(node: Node2): number {
+    if(node) {
+      return 0
+    }
     
+    if (!node.left) {
+      return this.getMinDeep(node.left) +  1
+    }
     
-    return
+    if (!node.right) {
+      return this.getMinDeep(node.right)
+    }
+    
+    return Math.min(this.getMinDeep(node.left), this.getMinDeep(node.right))
   }
-  
 }
+
+
+// 重建二叉树
+// 对称的二叉树
+// 二叉树的镜像
+// 二叉搜索树的第K个节点
+// 二叉搜索树的后序遍历
+// 平衡二叉树
+// 二叉树中和为某一值的路径
+// 二叉搜索树与双向链表
+// 序列化二叉树
+// 二叉树的下一个节点
+// 树的子结构
+
 
 const t = new Tree();
 

@@ -52,6 +52,7 @@ function replaceSpace(str: string): string {
 function replaceSpace2(str: string): string {
   return str.replace(/\s/g, '%20');
 }
+
 // 两数之和
 function twoSum(nums: number[], target: number): number[] {
   // 遍历？
