@@ -1,10 +1,10 @@
-console.log('队列');
+// 先进先出
 
 class Queue<T> {
-  private list: Array<T> = [];
+  protected list: T[] | null = null;
   
   constructor() {
-    // this.list = [];
+    this.list = [];
   }
   
   // 属性
@@ -13,15 +13,15 @@ class Queue<T> {
   }
   
   // 入队列
-  push(arg: T): number {
-    this.list[this.list.length] = arg;
+  push(element: T): number {
+    // this.list[this.list.length] = element;
+    this.list.push(element);
     return this.list.length;
   }
   
   // 出队列
   pop(): T {
-    const [res] = this.list.splice(0, 1);
-    return res;
+    return this.list.shift();
   }
 }
 

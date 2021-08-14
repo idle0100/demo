@@ -1,32 +1,34 @@
-/*
-* 最大堆, 最小堆
-* */
+import { SafeNumber } from "../algorithm/sort";
 
 type HeapType = 'min' | 'max';
 
-class Heap<T> {
+/**
+ * 堆（最大堆、最小堆）
+ */
+class Heap {
   type: HeapType;
-  value: T[];
+  value: SafeNumber[];
   
-  constructor(type: HeapType = 'min') {
+  constructor(type: HeapType = 'min', array: SafeNumber[]) {
     this.type = type;
-    this.value = [];
+    this.value = array;
   }
   
-  create() {
+  // 创建
+  create(): void {
     const length = this.value.length;
     for (let i = Math.floor((length / 2) - 1); i >= 0; i--) {
       this.adjust(i, length);
     }
   }
   
-  private adjust(index: number, length: number) {
+  private adjust(index: number, length: number): void {
     const array = this.value;
     
     for (let i = 2 * index + 1; i < length; i = 2 * i + 1) {
       if (i + 1 < length) {
         if ((this.type === 'max' && array[i + 1] > array[i]) || (this.type === 'min' && array[i + 1] < array[i])) {
-          i++
+          i++;
         }
       }
       
@@ -39,12 +41,15 @@ class Heap<T> {
     }
   }
   
-  add(element: T) {
+  // 堆的插入
+  add(element: SafeNumber) {
     const array = this.value;
     array.push(element);
+    
     if (array.length > 1) {
       let index = array.length - 1;
       let target = Math.floor((index - 1) / 2);
+      
       while (target >= 0) {
         if ((this.type === 'min' && array[index] < array[target]) || (this.type === 'max' && array[index] > array[target])) {
           [array[index], array[target]] = [array[target], array[index]]
@@ -57,7 +62,8 @@ class Heap<T> {
     }
   }
   
-  pop() {
+  // 堆的移除
+  pop(): SafeNumber {
     const array = this.value;
     let result = null;
     
@@ -73,14 +79,13 @@ class Heap<T> {
 }
 
 
-
-const heap = new Heap<number>('max');
-heap.add(6);
-heap.add(10);
-
-console.log(heap.value);
-console.log(heap.pop());
-console.log(heap.value);
+const heap = new Heap('max', [3, 5, 7, 9, 8]);
+// heap.add(6);
+// heap.add(10);
+//
+// console.log(heap.value);
+// console.log(heap.pop());
+// console.log(heap.value);
 
 
 
