@@ -1,7 +1,28 @@
 /**
  * 排序
+ * 1. 选择排序
+ * 2. 冒泡排序
+ * 3. 插入排序
+ * 4. 堆排序
+ * 5. 希尔排序
+ * 6. 归并排序
+ * 7. 快速排序
+ * 8. 桶排序
+ * 9. 计数排序
+ * 10. 基数排序
  */
-// 1. 冒泡排序
+
+type SafeNumber = number;
+
+// 排序么，要么是升序，要么是降序。
+
+
+// 1. 选择排序
+function selectSort() {
+
+}
+
+// 2. 冒泡排序
 function bubbleSort<T>(array: Array<T>): Array<T> {
   // 升序
   for (let j = 0; j < array.length; j++) {
@@ -21,7 +42,7 @@ function bubbleSort<T>(array: Array<T>): Array<T> {
   return array;
 }
 
-// 1.1 之前常规写法
+// 2.1 之前常规写法
 function bubbleSort2<T>(array: Array<T>): Array<T> {
   // 升序
   for (let i = 0; i < array.length - 1; i++) {
@@ -37,7 +58,7 @@ function bubbleSort2<T>(array: Array<T>): Array<T> {
 }
 
 
-// 2. 插入排序
+// 3. 插入排序
 function insertSort2<T>(array: Array<T>): Array<T> {
   
   for (let i = 1; i < array.length; i++) {
@@ -58,7 +79,6 @@ function insertSort2<T>(array: Array<T>): Array<T> {
   return array;
 }
 
-
 function insertSort<T>(array: Array<T>): Array<T> {
   
   for (let i = 1; i < array.length; i++) {
@@ -78,12 +98,11 @@ function insertSort<T>(array: Array<T>): Array<T> {
 }
 
 
-const arr = [4, 6, 2, 9, 5];
+// 6. 归并排序
+// 思路：先逐层递归分割数组，知道数组元素小于2时，在回退合并数组。
 
-
-// 3. 归并排序
-
-function mergeSort(array) {
+function mergeSort(array: SafeNumber[]): SafeNumber[] {
+  // 递归标配，最里层执行这个，开始回退
   if (array.length < 2) {
     return array
   }
@@ -95,15 +114,17 @@ function mergeSort(array) {
   return merge(mergeSort(front), mergeSort(end))
 }
 
-function merge(front, end) {
+// 该方法返回的肯定是一个有序数组（这里是升序）
+function merge(front: SafeNumber[], end: SafeNumber[]): SafeNumber[] {
   const temp = []
+  
   while (front.length && end.length) {
     if (front[0] < end[0]) {
       temp.push(front.shift())
     } else {
       temp.push(end.shift())
     }
-  }
+  } // 跳出循环时，至少有一个数组为空了
   
   while (front.length) {
     temp.push(front.shift())
