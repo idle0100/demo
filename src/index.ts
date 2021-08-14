@@ -10,13 +10,13 @@ import './css/style.scss';
  * 算法练习
  */
 import './algorithm/divideConquer.ts'
-import './algorithm/sort.ts';
+// import './algorithm/sort.ts';
 
 
 /**
  * Web APIs
  */
-import './ts/web-apis.ts';
+// import './ts/web-apis.ts';
 
 
 

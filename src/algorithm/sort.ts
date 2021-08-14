@@ -12,18 +12,27 @@
  * 10. 基数排序
  */
 
-type SafeNumber = number;
-
-// 排序么，要么是升序，要么是降序。
+export type SafeNumber = number;
 
 
 // 1. 选择排序
-function selectSort() {
-
+function selectSort(array: SafeNumber[]): SafeNumber[] {
+  for (let i = 0; i < array.length; i++) {
+    // 保存下一次循环的最小值索引
+    let minIndex = i;
+    for (let j = i + 1; i < array.length; j++) {
+      if (array[j] < array[minIndex]) {
+        minIndex = j;
+      }
+    }
+    [array[minIndex], array[i]] = [array[i], array[minIndex]];
+  }
+  
+  return array
 }
 
 // 2. 冒泡排序
-function bubbleSort<T>(array: Array<T>): Array<T> {
+function bubbleSort(array: SafeNumber[]): SafeNumber[] {
   // 升序
   for (let j = 0; j < array.length; j++) {
     let complete = true;
@@ -43,7 +52,7 @@ function bubbleSort<T>(array: Array<T>): Array<T> {
 }
 
 // 2.1 之前常规写法
-function bubbleSort2<T>(array: Array<T>): Array<T> {
+function bubbleSort2(array: SafeNumber[]): SafeNumber[] {
   // 升序
   for (let i = 0; i < array.length - 1; i++) {
     // 执行一次for循环后，将最小的值放置于i位.
@@ -59,7 +68,7 @@ function bubbleSort2<T>(array: Array<T>): Array<T> {
 
 
 // 3. 插入排序
-function insertSort2<T>(array: Array<T>): Array<T> {
+function insertSort2(array: SafeNumber[]): SafeNumber[] {
   
   for (let i = 1; i < array.length; i++) {
     if (array[i] < array[0]) {
@@ -79,7 +88,7 @@ function insertSort2<T>(array: Array<T>): Array<T> {
   return array;
 }
 
-function insertSort<T>(array: Array<T>): Array<T> {
+function insertSort(array: SafeNumber[]): SafeNumber[] {
   
   for (let i = 1; i < array.length; i++) {
     let target = i
@@ -98,9 +107,19 @@ function insertSort<T>(array: Array<T>): Array<T> {
 }
 
 
+// 4. 堆排序
+function heapSort() {
+
+}
+
+// 5. 希尔排序
+function shellSort() {
+
+}
+
+
 // 6. 归并排序
 // 思路：先逐层递归分割数组，知道数组元素小于2时，在回退合并数组。
-
 function mergeSort(array: SafeNumber[]): SafeNumber[] {
   // 递归标配，最里层执行这个，开始回退
   if (array.length < 2) {
@@ -138,7 +157,43 @@ function merge(front: SafeNumber[], end: SafeNumber[]): SafeNumber[] {
 }
 
 
+// 7. 快速排序
+function quickSort(array: SafeNumber[]): SafeNumber[] {
+  if (array.length < 2) {
+    return array
+  }
+  
+  const target = array[0]
+  const left = []
+  const right = []
+  
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] < target) {
+      left.push(array[i])
+    } else {
+      right.push(array[i])
+    }
+  }
+  
+  // return quickSort(left).concat([target], quickSort(right))
+  return [...quickSort(left), target, ...quickSort(right)]
+}
 
+
+// 8. 桶排序
+function bucketSort() {
+  
+}
+
+// 9. 计数排序
+function countSort() {
+
+}
+
+// 10. 基数排序
+function radixSort() {
+
+}
 
 
 
