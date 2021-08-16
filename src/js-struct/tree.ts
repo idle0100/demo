@@ -3,7 +3,7 @@
  * 思路的正确性, 好的思路可以事半功倍.
  */
 
-class Node2 {
+export class Node2 {
 	public data: number;
 	public left: Node2 | null;
 	public right: Node2 | null;
