@@ -9,9 +9,8 @@ import './css/style.scss';
 /**
  * 算法练习
  */
-import './algorithm/divideConquer.ts'
+// import './algorithm/divideConquer.ts'
 // import './algorithm/sort.ts';
-
 
 /**
  * Web APIs
