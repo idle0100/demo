@@ -11,7 +11,9 @@ import './css/style.scss';
  */
 // import './algorithm/divideConquer.ts'
 // import './algorithm/sort.ts';
-import './algorithm/DFS-BFS.ts';
+// import './algorithm/DFS-BFS.ts';
+import './algorithm/toBack.ts'
+
 
 /**
  * Web APIs
