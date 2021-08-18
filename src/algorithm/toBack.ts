@@ -77,22 +77,37 @@ function permutationCore(queue: string[], result, temp = '', current = '') {
 }
 
 
-permutation('abcd')
+// permutation('abcd')
 
 
+// 3. 和为sum的n个数
+// 题目：给定无序、不重复的数组data，取出 n 个数，使其相加和为sum
+function getAllCombine(array: number[], n, sum, temp, collection) {
+  if (temp.length === n) {
+    if (temp.reduce((t, c) => t + c) === sum) {
+      const res = [...temp];
+      collection.push(res);
+    }
+    return;
+  }
+  
+  for (let i = 0; i < array.length; i++) {
+    const current = array.shift();
+    temp.push(current);
+    getAllCombine(array, n, sum, temp, collection);
+    
+    temp.pop();
+    array.push(current)
+  }
+}
 
 
+const arr = [1, 2, 3, 4, 5, 6];
+const collection: number[][] = [];
+// getAllCombine(arr, 3, 10, [], collection)
 
-
-
-
-
-
-
-
-
-
-
+// console.log('collection', collection)
+// console.log('arr', arr)
 
 
 
