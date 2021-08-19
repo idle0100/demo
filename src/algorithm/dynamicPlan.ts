@@ -2,9 +2,6 @@
  * 动态规划
  */
 
-import lodash from '../../node_modules/lodash/lodash.js'
-
-
 // 1. 最小路径和
 function minPathSum(grid: Array<Array<number>>): any {
   let m = grid.length;
@@ -85,12 +82,6 @@ const grid = [
   [2, 3, 2, 3]
 ];
 
-// console.log(minPathSum(grid));
 minPathSum(grid)
-// console.log(grid)
 
 
-var objects = [{ 'a': 1 }, { 'b': 2 }];
-
-var deep = lodash.cloneDeep(objects);
-console.log(deep[0] === objects[0]);
