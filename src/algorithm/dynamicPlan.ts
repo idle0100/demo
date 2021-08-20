@@ -82,6 +82,89 @@ const grid = [
   [2, 3, 2, 3]
 ];
 
-minPathSum(grid)
+// minPathSum(grid)
 
 
+// 2. 打家劫舍
+function rob(array: number[]): number {
+  // 取不相邻的数，写算法，返回最大值
+  const n = array.length;
+  // 最多取Math.ceil(n / 2)个数
+  
+  const result = [];
+  
+  // for (let i = 0; i < n;) {
+  //   if (!array[i + 1]) {
+  //     result.push(array[i]);
+  //     break
+  //   }
+  //
+  //   if (!array[i + 2]) {
+  //     result.push(Math.max(array[i], array[i + 1]));
+  //     break;
+  //   }
+  //
+  //   if ((array[i] + array[i + 2]) > array[i + 1] || array[i] > array[i + 1]) {
+  //     result.push(array[i])
+  //     i = i + 2;
+  //   } else {
+  //     result.push(array[i + 1])
+  //     i = i + 3;
+  //   }
+  // }
+  
+  // let k = 0;
+  // while (k < n) {
+  //   if (!array[k + 1]) {
+  //     result.push(array[k])
+  //     break;
+  //   } else if (!array[k + 2]) {
+  //     result.push(Math.max(array[k], array[k + 1]))
+  //     break;
+  //   } else {
+  //     const temp = array[k] + array[k + 2] > array[k + 1] ? k : k + 1;
+  //     result.push(array[temp])
+  //     k = temp + 2;
+  //   }
+  // }
+  
+  
+  const dp = [];
+  dp[0] = array[0];
+  dp[1] = Math.max(array[0], array[1]);
+  for (let i = 2; i < n; i++) {
+    dp[i] = Math.max(dp[i - 2] + array[i], dp[i - 1])
+  }
+  
+  
+  return dp[dp.length - 1]
+}
+
+const arrRob = [2, 11, 9, 3, 1];
+
+
+// 2.2 打家劫舍，数组首尾相邻了
+
+
+/**
+ * 贪心算法
+ */
+function findContentChildren(c: number[], t: number[]): number {
+  // 升序
+  c = c.sort((a, b) => a - b);
+  t = t.sort((a, b) => a - b);
+  
+  let num = 0;
+  let cookie = 0;
+  let child = 0;
+  
+  while (cookie < t.length && child < c.length) {
+    if (c[child] <= t[cookie]) {
+      num += 1
+      child += 1
+    }
+    cookie += 1
+  }
+  
+  return num
+}
