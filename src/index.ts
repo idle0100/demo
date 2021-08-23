@@ -12,13 +12,9 @@ import './css/style.scss'
 // import './algorithm/divideConquer.ts'
 // import './algorithm/sort.ts';
 // import './algorithm/DFS-BFS.ts';
-<<<<<<< HEAD
 import './algorithm/toBack.ts'
-=======
-// import './algorithm/toBack.ts'
 // import './algorithm/recursionAndLoop.ts'
-import './algorithm/dynamicPlan.ts'
->>>>>>> d31a79caeeeab22eda5ce58a5aa844520201d142
+// import './algorithm/dynamicPlan.ts'
 
 /**
  * Web APIs
