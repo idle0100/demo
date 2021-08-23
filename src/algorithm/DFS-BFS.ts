@@ -112,8 +112,6 @@ const demo2: LandType[][] = [
  *    4. 课程表
  *    5. 岛屿数量
  */
-
-
 class Node3 {
   public data: number;
   public left: Node3 | null;

@@ -1,42 +1,42 @@
 /**
  *  回溯算法
- *    相关题目：
- *        1. 二叉树中和为某一值的路径
- *        2. 字符串的排列
- *        3. 和为sum的n个数
- *        4. 矩阵中的路径
- *        5. 机器人的运动范围
- *        6. N皇后问题
+ *  相关题目：
+ *    1. 二叉树中和为某一值的路径
+ *    2. 字符串的排列
+ *    3. 和为sum的n个数
+ *    4. 矩阵中的路径
+ *    5. 机器人的运动范围
+ *    6. N皇后问题
  */
 // 1. 路径总和
 function findPath(root, expectNumber: number) {
-	const result = [];
-	if (root) {
-		findPathCore(root, expectNumber, [], 0, result);
-	}
-	
-	return result;
+  const result = [];
+  if (root) {
+    findPathCore(root, expectNumber, [], 0, result);
+  }
+  
+  return result;
 }
 
 // 个人提问：找到后，在回退时，好像还需要去依次执行完后面的函数呀！！！
 function findPathCore(node, expectNumber, stack, sum, result) {
-	stack.push(node.val);
-	
-	sum += node.val;
-	
-	if (!node.left && !node.right && sum === expectNumber) {
-		result.push(stack.slice(0));
-	}
-	
-	if (node.left) {
-		findPathCore(node.left, expectNumber, stack, sum, result);
-	}
-	
-	if (node.right) {
-		findPathCore(node.right, expectNumber, stack, sum, result);
-	}
-	
-	stack.pop();
+  stack.push(node.val);
+  
+  sum += node.val;
+  
+  if (!node.left && !node.right && sum === expectNumber) {
+    result.push(stack.slice(0));
+  }
+  
+  if (node.left) {
+    findPathCore(node.left, expectNumber, stack, sum, result);
+  }
+  
+  if (node.right) {
+    findPathCore(node.right, expectNumber, stack, sum, result);
+  }
+  
+  stack.pop();
 }
 
 
@@ -73,6 +73,7 @@ function permutationCore(queue: string[], result, temp = '', current = '') {
     console.log(count++)
   }
 }
+
 
 // 3. 和为sum的n个数
 function getAllCombine(array: number[], n: number, sum: number, temp: number[]) {
@@ -168,6 +169,81 @@ function movingCountCore(m, n, k, flag, i, j): number {
 }
 
 
+// 6. N皇后问题
+
+class ListNode {
+  val: number;
+  next: ListNode | null;
+  
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
+  }
+}
+
+/**
+ * 递归
+ * 两数相加
+ * @param l1
+ * @param l2
+ */
+function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+  let root = null;
+  let result = null;
+  let carry = 0;
+  
+  while (l1 || l2) {
+    const m1 = l1 ? l1.val : 0;
+    const m2 = l2 ? l2.val : 0;
+    const total = m1 + m2 + carry;
+    
+    if (!root) {
+      root = result = new ListNode(total % 10);
+    } else {
+      result.next = new ListNode(total % 10);
+      result = result.next;
+    }
+    
+    carry = Math.floor(total / 10);
+    
+    if (l1) {
+      l1 = l1.next;
+    }
+    if (l2) {
+      l2 = l2.next
+    }
+  }
+  
+  if (carry > 0) {
+    result.next = new ListNode(carry);
+  }
+  
+  return root;
+}
+
+const c1 = new ListNode(6)
+const c2 = new ListNode(9, c1)
+const c3 = new ListNode(9, c2)
+const c4 = new ListNode(9, c3)
+const c5 = new ListNode(9, c4)
+const c6 = new ListNode(9, c5)
+const c7 = new ListNode(9, c6)
+
+const d1 = new ListNode(9)
+const d2 = new ListNode(9, d1)
+const d3 = new ListNode(9, d2)
+const d4 = new ListNode(9, d3)
 
 
+let result = addTwoNumbers(c7, d4);
 
+// while (result) {
+//   console.log(result.val);
+//   result = result.next;
+// }
+
+
+/**
+ * 最长回文子串
+ * @param s
+ */
