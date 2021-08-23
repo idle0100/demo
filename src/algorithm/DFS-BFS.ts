@@ -132,7 +132,7 @@ class Node3 {
 
 /**
  * 路径总和
- * // 自己结合前序遍历写的方法，很臃肿！！！
+ * 自己结合前序遍历写的方法，很臃肿！！！DFS做法
  */
 function hasPathNum(root: Node3, target: number): boolean {
   if (root == null) {
@@ -140,28 +140,29 @@ function hasPathNum(root: Node3, target: number): boolean {
   }
   // 前序遍历
   const flag = [false];
-  preorder(root, [], target, flag);
+  preorder(root, [], target, flag, 0);
   return flag[0];
 }
 
-function preorder(root: Node3, array, target, flag) {
+function preorder(root: Node3, array, target, flag, sum) {
   if (root && !flag[0]) {
     array.push(root.data)
     
-    console.log('前', array);
+    sum += root.data;
+    
     if (!root.left && !root.right) {
-      const total = array.length ? array.reduce((prev, curr) => prev + curr) : 0;
-      if (total == target) {
-        // 查到之后，如何停止呢？
-        flag[0] = true;
-      } else {
-        array.pop();
-      }
-      return;
+      // const total = array.length ? array.reduce((prev, curr) => prev + curr) : 0;
+      // if (total == target) {
+      //   // 查到之后，如何停止呢？
+      //   flag[0] = true;
+      // } else {
+      //   array.pop();
+      // }
+      // return;
     }
     
-    preorder(root.left, array, target, flag);
-    preorder(root.right, array, target, flag);
+    preorder(root.left, array, target, flag, sum);
+    preorder(root.right, array, target, flag, sum);
     
     // 两个叶子的两条路径都不符合时，在遍历完成后，将该父节点删除
     if (!flag[0]) {
