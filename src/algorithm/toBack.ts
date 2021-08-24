@@ -183,7 +183,7 @@ class ListNode {
 
 /**
  * 递归
- * 两数相加
+ * 两链表相加
  * @param l1
  * @param l2
  */
