@@ -12,7 +12,7 @@ import './css/style.scss'
 // import './algorithm/divideConquer.ts'
 // import './algorithm/sort.ts';
 // import './algorithm/DFS-BFS.ts';
-import './algorithm/toBack.ts'
+// import './algorithm/toBack.ts'
 // import './algorithm/recursionAndLoop.ts'
 // import './algorithm/dynamicPlan.ts'
 
@@ -21,6 +21,8 @@ import './algorithm/toBack.ts'
  */
 // import './ts/web-apis.ts'
 
+
+import './realization/Observable.ts'
 
 
 
