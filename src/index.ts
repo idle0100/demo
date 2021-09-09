@@ -23,7 +23,7 @@ import './css/style.scss'
 
 
 
-import './ts/map-set.ts'
+// import './ts/map-set.ts'
 
 
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="https://unpkg.com/@antv/g2plot@latest/dist/g2plot.min.js"></script>
+</head>
+<body>
+  
+  <div id="chartLine"></div>
+  
+  <script>
+    const { Line } = G2Plot;
+    const node = document.getElementById('chartLine');
+
+    const data = [
+      { year: '1850', value: 0, category: 'Liquid fuel' },
+      { year: '1851', value: 12, category: 'Liquid fuel' },
+      { year: '1852', value: 33, category: 'Liquid fuel' },
+      { year: '1853', value: 21, category: 'Liquid fuel' },
+      
+      { year: '1850', value: 25, category: 'Solid fuel' },
+      { year: '1851', value: 54, category: 'Solid fuel' },
+      { year: '1852', value: 67, category: 'Solid fuel' },
+      { year: '1853', value: 30, category: 'Solid fuel' },
+  
+      { year: '1850', value: 32, category: 'Gas fuel' },
+      { year: '1851', value: 23, category: 'Gas fuel' },
+      { year: '1852', value: 54, category: 'Gas fuel' },
+      { year: '1853', value: 32, category: 'Gas fuel' },
+      
+      { year: '1850', value: 12, category: 'Cement production' },
+      { year: '1851', value: 45, category: 'Cement production' },
+      { year: '1852', value: 32, category: 'Cement production' },
+      { year: '1853', value: 5, category: 'Cement production' },
+    ];
+
+    const line = new Line(node, {
+      data,
+      xField: 'year',
+      yField: 'value',
+      // serialField: 'category',
+      xAxis: {
+        // type: 'time',
+      },
+      yAxis: {
+      
+      },
+      legend: {
+        position: 'top',
+      },
+    });
+    line.render();
+  </script>
+
+</body>
+</html>
