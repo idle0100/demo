@@ -7,6 +7,31 @@
 </head>
 <body>
   <h1>这个项目使用ts、scss</h1>
-  <div class="bear"></div>
+  <!--<div class="bear"></div>-->
+  
+  
+  <svg width="800" height="600">
+    <rect x="0" y="0" width="400" height="300" style="fill: pink;"></rect>
+  </svg>
+  
+  
+  <canvas id="canvas" width="800" height="600"></canvas>
+  
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+  
+    ctx.fillStyle = 'rgb(200, 0,0,)';
+    ctx.fillRect(10, 10, 55, 50);
+    
+    ctx.fillStyle = 'rgba(0,0,200,0.5)';
+    ctx.fillRect(30, 30, 55 ,50);
+    
+    
+    
+    
+  
+  </script>
+  
 </body>
 </html>
