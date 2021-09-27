@@ -9,29 +9,162 @@
   <h1>这个项目使用ts、scss</h1>
   <!--<div class="bear"></div>-->
   
+  <!-- 行内块相邻时，之间默认有5px的间隙 -->
   
-  <svg width="800" height="600">
-    <rect x="0" y="0" width="400" height="300" style="fill: pink;"></rect>
-  </svg>
+  <!--<svg width="300" height="150" style="background-color:red;">-->
+  <!--  <symbol id="rect" viewBox="0 0 100 100">-->
+  <!--    <rect x="0" y="0" width="400" height="300" style="fill: pink;"></rect>-->
+  <!--  </symbol>-->
+  <!--  <symbol id="circle" viewBox="0 0 100 100" preserveAspectRatio="xMidYMin slice">-->
+  <!--    <circle cx="50" cy="50" r="40" fill="pink"></circle>-->
+  <!--  </symbol>-->
+  <!--  -->
+  <!--   <use x="0" y="0" href="#circle"></use>-->
+  <!--</svg>-->
   
   
-  <canvas id="canvas" width="800" height="600"></canvas>
+  <!--<svg style="background-color: #999999;">-->
+  <!--  <polygon points="50 10 100 50 50 110 10 50" fill="skyblue"></polygon>-->
+  <!--</svg>-->
   
-  <script>
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
+  <!--<svg style="background-color: #666666;">-->
+  <!--  <ellipse cx="150" cy="75" rx="50" ry="40" fill="yellow"></ellipse>-->
+  <!--</svg>-->
   
-    ctx.fillStyle = 'rgb(200, 0,0,)';
-    ctx.fillRect(10, 10, 55, 50);
+  <!--<svg style="background-color:#564356;">-->
+  <!--  <line x1="10" y1="50" x2="200" y2="75" stroke="blue"></line>-->
+  <!--</svg>-->
+  
+  
+  <!--<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">-->
+  <!--  <mask id="myMask1" maskUnits="userSpaceOnUse" x="20%" y="20%" width="60%" height="60%">-->
+  <!--    <rect fill="black" x="0" y="0" width="100%" height="100%" />-->
+  <!--    <circle fill="white" cx="50" cy="50" r="35" />-->
+  <!--  </mask>-->
+  <!--</svg>-->
+  
+  
+  <!--<div class="main">-->
+  <!--  <svg style="background-color:#fff;">-->
+  <!--    <rect x="0" y="0" width="10" height="10" fill="red">-->
+  <!--      &lt;!&ndash; 按设定的路径运动 &ndash;&gt;-->
+  <!--      <animateMotion-->
+  <!--        id="forward"-->
+  <!--        path="M 10 10 L 110 10 L 110 110 L 10 110"-->
+  <!--        dur="5s"-->
+  <!--        rotate="0"-->
+  <!--        begin="0; backward.end + 0.5s"-->
+  <!--        fill="freeze"-->
+  <!--      />-->
+  <!--      <animateMotion-->
+  <!--        id="backward"-->
+  <!--        path="M 10 110 L 110 110 L 110 10 L 10 10"-->
+  <!--        dur="5s"-->
+  <!--        rotate="0"-->
+  <!--        begin="forward.end + 0.5s"-->
+  <!--        fill="freeze"-->
+  <!--      />-->
+  <!--      &lt;!&ndash;<animate&ndash;&gt;-->
+  <!--      &lt;!&ndash;  attributeName="x"&ndash;&gt;-->
+  <!--      &lt;!&ndash;  attributeType="XML"&ndash;&gt;-->
+  <!--      &lt;!&ndash;  from="0"&ndash;&gt;-->
+  <!--      &lt;!&ndash;  to="200"&ndash;&gt;-->
+  <!--      &lt;!&ndash;  dur="5s"&ndash;&gt;-->
+  <!--      &lt;!&ndash;  repeatCount="2"&ndash;&gt;-->
+  <!--      &lt;!&ndash;/>&ndash;&gt;-->
+  <!--      &lt;!&ndash; <animate&ndash;&gt;-->
+  <!--      &lt;!&ndash;   attributeName="y"&ndash;&gt;-->
+  <!--      &lt;!&ndash;   attributeType="XML"&ndash;&gt;-->
+  <!--      &lt;!&ndash;   from="0"&ndash;&gt;-->
+  <!--      &lt;!&ndash;   to="200"&ndash;&gt;-->
+  <!--      &lt;!&ndash;   dur="5s"&ndash;&gt;-->
+  <!--      &lt;!&ndash;   repeatCount="2"&ndash;&gt;-->
+  <!--      &lt;!&ndash; />&ndash;&gt;-->
+  <!--    </rect>-->
+  <!--    <path d="M 10 10 L 110 10 L 110 110 L 10 110" fill="none" stroke="black"></path>-->
+  <!--  </svg>-->
+  <!--</div>-->
+
+  
+  <div class="main">
+    <!--<svg width="400" height="400" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+      <circle cx="100" cy="100" r="80" fill="none"
+        stroke-width="10px"
+        stroke="green"
+        stroke-dasharray="126"
+      >
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="0 100 100"
+          to="360 100 100"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </circle>
+      
+      <circle cx="100" cy="100" r="50" fill="none"
+        stroke-width="10px"
+        stroke="blue"
+        stroke-dasharray="79"
+      >
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="360 100 100"
+          to="0 100 100"
+          dur="6s"
+          repeatCount="indefinite"
+        />
+      </circle>
+  </svg>-->
     
-    ctx.fillStyle = 'rgba(0,0,200,0.5)';
-    ctx.fillRect(30, 30, 55 ,50);
-    
-    
-    
-    
+    <svg width="400" height="400">
+      <defs>
+        <path id="flexBox" d="M 5 5 L395 5 L 395 395 L 5 395 Z" fill="none" mask="url(#circle)"></path>
+      </defs>
+      
+      <defs>
+        <!-- 蒙版：涉及到颜色融合问题 -->
+        <mask id="test-mask">
+          <!--<rect x="5" y="5" width="390" height="200" fill="yellow"></rect>-->
+          <circle cx="0" cy="0" r="80" fill="white" stroke-width="5px">
+            <animateMotion
+              path="M 5 5 L395 5 L 395 395 L 5 395 Z"
+              dur="10s"
+              repeatCount="indefinite"
+              begin="0"
+              rotate="0"
+            />
+          </circle>
+        </mask>
+      </defs>
+      
+      <rect x="5" y="5" width="390" height="390" fill="none" stroke="blue"></rect>
+      <rect x="5" y="5" width="390" height="390" fill="none" stroke="red" stroke-width="5px" mask="url(#test-mask)"></rect>
+      
+      
+      <mask id="circle">
+        <circle cx="5" cy="5" r="50" fill="#f00">
+          <!--<animateMotion-->
+          <!--  path=""-->
+          <!--/>-->
+        </circle>
+      </mask>
+      
+      <use href="#flexBox"></use>
+    </svg>
+  </div>
   
-  </script>
+  
+
+
+  
+  
+
+  
   
 </body>
 </html>

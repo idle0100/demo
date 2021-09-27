@@ -1,2 +1,54 @@
 @width: 10px;
 @height: @width + 10px;
+
+#header {
+  width: @width;
+  height: @height;
+}
+
+// mixin
+.bordered {
+  border-top: 1px dotted black;
+  border-bottom: 2px solid black;
+}
+
+#menu a {
+  color: #111;
+  .bordered(); // 引入mixin
+}
+
+// nesting
+
+// 规则嵌套和冒泡
+.component {
+  width: 300px;
+  @media (min-width: 768px) {
+    width: 600px;
+    @media (min-resolution: 192dpi) {
+      background-image: linear-gradient(to #f00 #0f0);
+    }
+  }
+  @media (min-width: 1280px) {
+    width: 800px;
+  }
+}
+// 规则集
+#colors() {
+  primary: blue;
+  secondary: green;
+}
+
+.button {
+  color: #colors[primary];
+}
+
+@var: red;
+
+#page {
+  @var: white;
+  #header {
+    color: @var;
+  }
+}
+
+

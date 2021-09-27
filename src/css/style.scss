@@ -1,13 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html,
 body {
+  margin: 0;
+  padding: 0;
   background-color: #f3f3f3;
 }
 
+.main {
+  margin: 0 auto;
+  width: 960px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
 
 .bear {
   position: relative;

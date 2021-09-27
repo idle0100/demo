@@ -35,7 +35,7 @@ $class-name: demo;
 @mixin large-text {
   // 嵌套（属性嵌套）
   font: {
-    famil: Arial;
+    family: Arial;
     size: 20px;
     weight: bold;
   }
@@ -142,6 +142,25 @@ $gutter-width: 10px;
 }
 
 
+/*
+  使用频率最高的内容：
+    1. 变量与插值
+    2. 父选择器
+    3. 混入
+    4. @import
+
+*/
+
+
+@mixin link-colors($normal, $hover: $normal, $visited: $normal) {
+  color: $normal;
+  &:hover {
+    color: $hover;
+  }
+  &:visited {
+    color: $visited;
+  }
+}
 
 
 
