@@ -1,0 +1,124 @@
+html,
+body {
+  background: rgb(73, 208, 199);
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  //flex-wrap: wrap-reverse; // 很少用
+  flex-wrap: wrap;
+
+  & > div {
+    width: 200px;
+    height: 50px;
+    padding: 5px;
+    background-clip: content-box;
+    background-color: skyblue;
+
+    //float: left;
+  }
+}
+
+
+#rotating-chart {
+  width: 500px;
+  height: 280px;
+  margin: 100px auto;
+  border: 1px solid red;
+  overflow-x: hidden;
+  position: relative;
+
+  & > ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    // 高度塌陷了
+    width: 3000px;
+    height: 280px;
+    box-sizing: border-box;
+    padding: 16px 0;
+    //background: pink content-box;
+    margin: 0;
+
+    //animation: moving 5s ease-in-out alternate-reverse;
+
+    li {
+      font-size: 30px;
+      float: left;
+      width: 468px;
+      height: 248px;
+      padding-right: 16px;
+      padding-left: 16px;
+      background: pink content-box;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@keyframes moving {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -2500px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+
+#vertical-middle {
+  //border: 1px solid pink;
+  background: #7F7FD5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  height: 62px;
+  //display: flex;
+  //align-items: center;
+
+  vertical-align: text-bottom;
+
+  button {
+    height: 36px;
+  }
+}
+
+
+.demo {
+  width: 200px;
+  margin: 100px auto;
+  background-image: linear-gradient(145deg, #ce2626, #f52d2d);;
+  border-radius: 30px;
+  box-shadow: 20px 20px 40px #3eb1a9,
+  -20px -20px 40px #54efe5,
+  20px -20px 40px #3eb1a9,
+  -20px 20px 40px #54efe5;
+
+  &::before {
+    content: '';
+    display: block;
+    padding: 50%;
+  }
+}
+
+
+.test {
+  width: 320px;
+  aspect-ratio: 16 / 9;
+  background-color: #fff;
+}
